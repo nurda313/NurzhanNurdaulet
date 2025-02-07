@@ -1,7 +1,16 @@
-my_set1 = {1, 2, 3, 4}
-my_set2 = {3, 4, 5, 6}
+def my_func(name):
+    return f"hello, {name}"
 
-print(my_set1.symmetric_difference(my_set2))
+func = my_func("ali")
+print(func)
+
+
+num = int(input())
+while num < 500:
+    num = num + 5
+    print(num)
+
+
 
 
 
