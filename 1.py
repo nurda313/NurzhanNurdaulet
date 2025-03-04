@@ -1,10 +1,10 @@
-sum = 0
-num = int(input("Enter the number: "))
-for n in range(num):
-    if n % 2 == 1:
-        print(n)
-  
+import json
 
+person = {
+    "name": "Ali",
+    "age": 15,
+    "city": "Almaty"
+}
 
-
-        
+json_data = json.dumps(person)  # Преобразуем словарь в JSON
+print(json_data)
