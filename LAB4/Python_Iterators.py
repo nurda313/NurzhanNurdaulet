@@ -1,81 +1,53 @@
-#Return an iterator from a tuple, and print each value:
+#1  Generator that generates squares up to N
 
-mytuple = ("apple", "banana", "cherry")
-myit = iter(mytuple)
+def square_gen(n):
+    for i in range(n + 1):
+        yield i * i
 
-print(next(myit))
-print(next(myit))
-print(next(myit))
-
-#Strings are also iterable objects, containing a sequence of characters:
-
-mystr = "banana"
-myit = iter(mystr)
-
-print(next(myit))
-print(next(myit))
-print(next(myit))
-print(next(myit))
-print(next(myit))
-print(next(myit))
+for num in square_gen(10):
+    print(num, end=" ")
 
 
-#We can also use a for loop to iterate through an iterable object:
+
+#2  Generator for even numbers up to n
+def even_gen(n):
+    for i in range(0, n + 1, 2):
+        yield i
+
+n = int(input())
+print(",".join(map(str, even_gen(n))))
+
+  
 
 
-mytuple = ("apple", "banana", "cherry")
+#3 Generator for numbers divisible by 3 and 4
+def div_gen(n):
+    for i in range(n + 1):
+        if i % 3 == 0 and i % 4 == 0:
+            yield i
 
-for x in mytuple:
-  print(x)
-
-#Iterate the characters of a string:
-
-mystr = "banana"
-
-for x in mystr:
-  print(x)
+for num in div_gen(50):
+    print(num, end=" ")
 
 
-#Create an iterator that returns numbers, starting with 1, 
-#and each sequence will increase by one (returning 1,2,3,4,5 etc.):
-
-class MyNumbers:
-  def __iter__(self):
-    self.a = 1
-    return self
-
-  def __next__(self):
-    x = self.a
-    self.a += 1
-    return x
-
-myclass = MyNumbers()
-myiter = iter(myclass)
-
-print(next(myiter))
-print(next(myiter))
-print(next(myiter))
-print(next(myiter))
-print(next(myiter))
 
 
-#Stop after 20 iterations:
+#4 Generator squares(a, b) to yield squares from a to b
+def squares(a, b):
+    for i in range(a, b + 1):
+        yield i * i
 
-class MyNumbers:
-  def __iter__(self):
-    self.a = 1
-    return self
+for num in squares(3, 7):
+    print(num)
 
-  def __next__(self):
-    if self.a <= 20:
-      x = self.a
-      self.a += 1
-      return x
-    else:
-      raise StopIteration
 
-myclass = MyNumbers()
-myiter = iter(myclass)
 
-for x in myiter:
-  print(x)
+
+#5
+def countdown(n):
+    while n >= 0:
+        yield n
+        n -= 1
+
+for num in countdown(5):
+    print(num, end=" ")
