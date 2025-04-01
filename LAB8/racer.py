@@ -51,9 +51,9 @@ while running:
 
     # Управление стрелками
     keys = pygame.key.get_pressed()
-    if keys[pygame.K_LEFT] and car_x > 0:
+    if keys[pygame.K_a] and car_x > 0:
         car_x -= car_speed
-    if keys[pygame.K_RIGHT] and car_x < WIDTH - car.get_width():
+    if keys[pygame.K_d] and car_x < WIDTH - car.get_width():
         car_x += car_speed
 
     # Отображаем машину игрока
