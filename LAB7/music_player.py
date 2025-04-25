@@ -27,7 +27,7 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-        # Обработка клавиш
+        # Buttons
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_SPACE:  # Play/Pause
                 if paused:
